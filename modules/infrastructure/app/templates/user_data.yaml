@@ -1,0 +1,13 @@
+#cloud-config
+bootcmd:
+ - cloud-init-per instance $(echo "ECS_CLUSTER=${cluster_name}" >> /etc/ecs/ecs.config)
+
+ssh_authorized_keys:
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0qjHcvivPeI1fHE9b7Y1ZpHpatrYCLdj2Yo59J8P4TnJ8oLR9EDrWmdjO9H/o5k5QjNiuhYw8ZuHRINBDKnF/FpiJ+S0zo3DFAml371Jaz10yrbdCLcNwoJqSIRehf9saedUAzYY1yCo1n8weIsqb7+UB7U10yF5SbwM5ZwEYY7LTeDQSuV+mIBowkDEH9RnUw2yuK22PKNn/AKxE6KLqAKLj8ApgKVecGm17jtfkgHNmltQyaifNlycSqZ68L13bhd/LCVH96FWR/wvXAa0CD3Bx/2e3qiBc4qRqNPFPZhgAhUTf+s2zuBQ/vt5Ih4EHrL8cAdTAVzAuzRDv89lR scalarlyx@mac
+
+runcmd:
+ - yum install nfs-utils awscli -y
+ - aws s3 sync s3://crystalcommerce-${env}-bastionkeys/bastion /tmp/keys 
+ - touch /home/ec2-user/.ssh/authorized_keys
+ - for file in /tmp/keys/*; do cat $file | xargs echo >> /home/ec2-user/.ssh/authorized_keys; done
+ - mkdir -p /srv/nfs/share/ && mount -t nfs4 -o nfsvers=4.1,noatime,nodiratime,actimeo=300 ${nfs_ip}:EBSpool/EBSvol/ /srv/nfs/share
