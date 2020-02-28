@@ -1,4 +1,3 @@
-
 module "database" {
   source            = "../../../modules/infrastructure/db"
   database_name     = var.database_name
