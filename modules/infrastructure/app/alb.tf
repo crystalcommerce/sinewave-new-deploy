@@ -1,7 +1,7 @@
 resource "aws_security_group" "lb" {
   name        = "${local.app_full_name}-lb-sg"
   description = "controls access to the ALB"
-  vpc_id      = "${local.vpc_id}"
+  vpc_id      = local.vpc_id
 
   ingress {
     protocol    = "tcp"
@@ -65,13 +65,13 @@ locals {
 
 
 resource "aws_route53_record" "lb_name" {
-  zone_id = "${data.aws_route53_zone.primary.zone_id}"
+  zone_id = data.aws_route53_zone.primary.zone_id
   name    = local.app_domain_name
   type    = "A"
 
   alias {
-    name                   = "${aws_alb.app_lb.dns_name}"
-    zone_id                = "${aws_alb.app_lb.zone_id}"
+    name                   = aws_alb.app_lb.dns_name
+    zone_id                = aws_alb.app_lb.zone_id
     evaluate_target_health = true
   }
 }

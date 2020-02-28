@@ -1,7 +1,7 @@
 locals {
-  vpc_id         = "${data.aws_vpc.vpc.id}"
-  app_subnet_ids = "${data.aws_subnet_ids.app.ids}"
-  dmz_subnet_ids = "${data.aws_subnet_ids.dmz.ids}"
+  vpc_id         = data.aws_vpc.vpc.id
+  app_subnet_ids = data.aws_subnet_ids.app.ids
+  dmz_subnet_ids = data.aws_subnet_ids.dmz.ids
 
   app_full_name = "${var.env}-${var.name}" # app full name
 
@@ -15,7 +15,7 @@ data "aws_vpc" "vpc" {
 }
 
 data "aws_subnet_ids" "app" {
-  vpc_id = "${local.vpc_id}"
+  vpc_id = local.vpc_id
   filter {
     name   = "tag:Name"
     values = ["App Subnet*"]
@@ -23,7 +23,7 @@ data "aws_subnet_ids" "app" {
 }
 
 data "aws_subnet_ids" "dmz" {
-  vpc_id = "${local.vpc_id}"
+  vpc_id = local.vpc_id
   filter {
     name   = "tag:Name"
     values = ["DMZ Subnet*"]
@@ -31,7 +31,7 @@ data "aws_subnet_ids" "dmz" {
 }
 
 data "aws_security_group" "database_access" {
-  vpc_id = "${local.vpc_id}"
+  vpc_id = local.vpc_id
   filter {
     name   = "tag:Name"
     values = ["${local.app_full_name}-db-access-sg"]
@@ -39,7 +39,7 @@ data "aws_security_group" "database_access" {
 }
 
 data "aws_security_group" "bastion" {
-  vpc_id = "${local.vpc_id}"
+  vpc_id = local.vpc_id
   filter {
     name   = "tag:Name"
     values = ["sg-bastion-${var.env}"]
@@ -47,7 +47,7 @@ data "aws_security_group" "bastion" {
 }
 
 data "aws_security_group" "app" {
-  vpc_id = "${local.vpc_id}"
+  vpc_id = local.vpc_id
   filter {
     name   = "tag:Name"
     values = ["sg-Apps-${var.env}"]

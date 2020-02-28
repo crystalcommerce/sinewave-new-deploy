@@ -3,11 +3,10 @@ bootcmd:
  - cloud-init-per instance $(echo "ECS_CLUSTER=${cluster_name}" >> /etc/ecs/ecs.config)
 
 ssh_authorized_keys:
-  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD0qjHcvivPeI1fHE9b7Y1ZpHpatrYCLdj2Yo59J8P4TnJ8oLR9EDrWmdjO9H/o5k5QjNiuhYw8ZuHRINBDKnF/FpiJ+S0zo3DFAml371Jaz10yrbdCLcNwoJqSIRehf9saedUAzYY1yCo1n8weIsqb7+UB7U10yF5SbwM5ZwEYY7LTeDQSuV+mIBowkDEH9RnUw2yuK22PKNn/AKxE6KLqAKLj8ApgKVecGm17jtfkgHNmltQyaifNlycSqZ68L13bhd/LCVH96FWR/wvXAa0CD3Bx/2e3qiBc4qRqNPFPZhgAhUTf+s2zuBQ/vt5Ih4EHrL8cAdTAVzAuzRDv89lR scalarlyx@mac
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDPIJHj3wu4Q/c+jgeOu19ge7DWLQjCBSoPyDvjucVkYriiHzUtlDK17OF9ynhWOrgHnGQUSRISZ4QHvckCDqYB3d1/wt3GmzqcOyiHfprZ7KbIGM4UrdfIAfkUIyrtVNOXTtz+pG2oADNWK4lyshBRVxD3WiDKHUTSAPYal11oNpePv6b89HNUyA7TNsFwqIeD2j2hHJB7L8KSEydJI3rTbmp0Q6EZFuodasPViQ+0A6eTqm1/LN8dxo3qJLmxxscTABYYUfX0jAJV0+iXwTvswxv++Hlg+sHN/JTffLGbXl2U9DPeUUNnRBrvVezs0vonrTibQuD8y/nklDgyGxvZWNx+qmA53zYF6I8vYFXw0l+5tl6vhp6lCYZbhPnwUlRW9Tl00WmCZNpsnNDNzUOS9h7vAZ1l7s8511w+EOK12wfG/jLJNlHUM1k5g+cuwA3LFRa12cTFa56x4JaALZEqnAOcnY2qeCMfQ1G6r0ObqAorl27tGeb1KZsWc3cLyJNoKGu5DoFo0GfqiyCBS3VuzuC8xDHEVXKN1kv2mLqDA4FmKZKJ8cEPmqRYr6cP7o6FO39sn3nsVaLI4lhA3hBCOAZAQiQdMErlGoA7oLNwNv/iXiqwK4Cya8zPfHIRy5zA9edND6UaATSGxiCOziCEVP9I1AJqS8YIqvoO3cFTRQ== wen.luo@crystalcommerce.com
 
 runcmd:
- - yum install nfs-utils awscli -y
- - aws s3 sync s3://crystalcommerce-${env}-bastionkeys/bastion /tmp/keys 
+ - yum install awscli -y
+ - aws s3 sync s3://crystalcommerce-${env}-bastionkeys/bastion /tmp/keys
  - touch /home/ec2-user/.ssh/authorized_keys
  - for file in /tmp/keys/*; do cat $file | xargs echo >> /home/ec2-user/.ssh/authorized_keys; done
- - mkdir -p /srv/nfs/share/ && mount -t nfs4 -o nfsvers=4.1,noatime,nodiratime,actimeo=300 ${nfs_ip}:EBSpool/EBSvol/ /srv/nfs/share

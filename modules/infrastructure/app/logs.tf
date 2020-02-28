@@ -9,5 +9,5 @@ resource "aws_cloudwatch_log_group" "log_group" {
 
 resource "aws_cloudwatch_log_stream" "cb_log_stream" {
   name           = "${var.name}-log-stream"
-  log_group_name = "${aws_cloudwatch_log_group.log_group.name}"
+  log_group_name = aws_cloudwatch_log_group.log_group.name
 }

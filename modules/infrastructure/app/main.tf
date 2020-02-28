@@ -1,8 +1,3 @@
-provider "aws" {
-  region = "${var.region}"
-}
-
-
 resource "aws_ecs_cluster" "app" {
   name = local.app_full_name
   tags = {
@@ -30,10 +25,6 @@ data "template_file" "app" {
 resource "aws_ecs_task_definition" "app" {
   family                = local.app_full_name
   container_definitions = data.template_file.app.rendered
-  volume {
-    name      = "shared_themes"
-    host_path = "/srv/nfs/share/themes"
-  }
   requires_compatibilities = ["EC2"]
   cpu                      = "256"
   memory                   = "512"

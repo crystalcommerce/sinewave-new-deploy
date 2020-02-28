@@ -57,7 +57,7 @@ resource "aws_security_group" "ecs_container_instance" {
 resource "aws_autoscaling_group" "app" {
   name_prefix          = "${local.app_full_name}-"
   vpc_zone_identifier  = local.app_subnet_ids
-  launch_configuration = "${aws_launch_configuration.app.name}"
+  launch_configuration = aws_launch_configuration.app.name
 
   desired_capacity = var.instance_size
   min_size         = 1
@@ -66,9 +66,9 @@ resource "aws_autoscaling_group" "app" {
 
 resource "aws_launch_configuration" "app" {
   name_prefix          = "${local.app_full_name}-"
-  image_id             = "${data.aws_ami.ecs_optimized.id}"
-  iam_instance_profile = "${aws_iam_instance_profile.ecs_container_instance.id}"
-  user_data            = "${data.template_file.user_data.rendered}"
+  image_id             = data.aws_ami.ecs_optimized.id
+  iam_instance_profile = aws_iam_instance_profile.ecs_container_instance.id
+  user_data            = data.template_file.user_data.rendered
   instance_type        = var.instance_type
   security_groups = [
     aws_security_group.ecs_container_instance.id,
@@ -84,7 +84,7 @@ resource "aws_launch_configuration" "app" {
 resource "aws_iam_instance_profile" "ecs_container_instance" {
   name_prefix = "ecs-instance-profile"
   path        = "/"
-  role        = "${aws_iam_role.ecs_container_instance.id}"
+  role        = aws_iam_role.ecs_container_instance.id
   provisioner "local-exec" {
     command = "sleep 10"
   }
