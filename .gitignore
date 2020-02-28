@@ -1,3 +1,4 @@
 **/.terragrunt-cache/
 **/*/plan.out
 **/.terraform/
+*.swp

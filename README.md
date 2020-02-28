@@ -23,6 +23,18 @@ export AWS_REGION=XXXXX
 export AWS_PROFILE=<your-profile-name>
 ```
 
+#### Enable remote backends
+
+```sh
+cd  environments/dev/1-state
+
+# install all modules(only needed at the first run)
+terraform init
+# examine changes to be applied
+terraform plan -var-file="../terraform.tfvars"
+# apply changes
+terraform apply -var-file="../terraform.tfvars"
+```
 
 #### Provision Infrastructures
 components should be provisioned in the following order
@@ -34,9 +46,9 @@ components should be provisioned in the following order
 cd  environments/dev/<component>
 
 # examine changes to be applied
-terraform plan
+terraform plan -var-file="../terraform.tfvars"
 # apply changes
-terraform apply
+terraform apply -var-file="../terraform.tfvars"
 ```
 
 
