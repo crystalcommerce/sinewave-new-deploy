@@ -1,0 +1,3 @@
+**/.terragrunt-cache/
+**/*/plan.out
+**/.terraform/
