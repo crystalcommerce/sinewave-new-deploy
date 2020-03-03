@@ -1,3 +1,1 @@
-output "endpoint" {
-  value = "${module.app.endpoint}"
-}
+../../template/4-app/output.tf

@@ -34,13 +34,3 @@ variable "instance_size" {
 variable "domain" {
 
 }
-
-variable "app_id" {
-
-}
-
-variable "secret" {
-
-}
-
-
