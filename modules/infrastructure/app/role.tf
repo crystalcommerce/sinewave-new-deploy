@@ -2,7 +2,7 @@
 resource "aws_iam_role" "ecs_task_execution" {
   name_prefix        = "ecs_task_execution"
   path               = "/"
-  assume_role_policy = "${data.aws_iam_policy_document.ecs_task_execution.json}"
+  assume_role_policy = data.aws_iam_policy_document.ecs_task_execution.json
 }
 
 data "aws_iam_policy_document" "ecs_task_execution" {
@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "ecs_task_execution" {
   }
 }
 resource "aws_iam_role_policy_attachment" "ecs_task_execution" {
-  role       = "${aws_iam_role.ecs_task_execution.name}"
+  role       = aws_iam_role.ecs_task_execution.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole"
 }
 
@@ -44,16 +44,16 @@ data "aws_iam_policy_document" "ecs_container_instance" {
 resource "aws_iam_role" "ecs_container_instance" {
   name_prefix        = "ecs_container_instance-"
   path               = "/"
-  assume_role_policy = "${data.aws_iam_policy_document.ecs_container_instance.json}"
+  assume_role_policy = data.aws_iam_policy_document.ecs_container_instance.json
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_container_instance" {
-  role       = "${aws_iam_role.ecs_container_instance.name}"
+  role       = aws_iam_role.ecs_container_instance.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_container_instance_s3_readonly" {
-  role       = "${aws_iam_role.ecs_container_instance.name}"
+  role       = aws_iam_role.ecs_container_instance.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
 }
 # ================= instance role and profile =================

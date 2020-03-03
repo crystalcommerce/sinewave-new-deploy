@@ -16,8 +16,6 @@ data "template_file" "app" {
     port         = var.app_port
     database_url = var.database_url
     master_key   = var.master_key
-    app_id       = var.app_id
-    secret       = var.secret
     log_group    = aws_cloudwatch_log_group.log_group.name
   }
 }
