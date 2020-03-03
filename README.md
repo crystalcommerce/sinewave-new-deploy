@@ -42,9 +42,13 @@ components should be provisioned in the following order
 - database
 - app
 
+Note: you may not need to provision image-repo and database frequently, the normal application deploy should just provision app component with environment variables in `environments/<env>/terraform.tfvars`
+
 ```sh
 cd  environments/dev/<component>
 
+# install all modules(only needed at the first run)
+terraform init
 # examine changes to be applied
 terraform plan -var-file="../terraform.tfvars"
 # apply changes
@@ -60,7 +64,7 @@ terraform apply -var-file="../terraform.tfvars"
 3. find sinewave new ec2 instance IP and ssh to it?
 `ssh ec2-user@<sinewave-new-host-ip>`
 
-### How to launch rails console on site uploader?
+### How to launch rails console on sinewave new?
 1. Follow the previsou steps to ssh to sinewave new host
 2. Find the sinewave-new container 
 ```
