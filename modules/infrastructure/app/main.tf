@@ -24,7 +24,7 @@ resource "aws_ecs_task_definition" "app" {
   family                = local.app_full_name
   container_definitions = data.template_file.app.rendered
   requires_compatibilities = ["EC2"]
-  memory                   = "10240"
+  memory                   = "4096"
   network_mode             = "host"
 }
 
