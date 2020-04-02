@@ -20,6 +20,10 @@
                 "value": "${database_url}"
             },
             {
+                "name": "REDIS_URL",
+                "value": "${redis_url}"
+            },
+            {
                 "name": "RAILS_MASTER_KEY",
                 "value": "${master_key}"
             },
