@@ -1,6 +1,6 @@
 
 data "aws_security_group" "sg_cache" {
-  vpc_id = "${var.vpc_id}"
+  vpc_id = var.vpc_id
   filter {
     name   = "tag:Name"
     values = ["sg-cache-${var.env}"]
