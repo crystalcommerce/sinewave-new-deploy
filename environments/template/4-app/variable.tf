@@ -22,6 +22,14 @@ variable "health_check_path" {
 
 }
 
+variable "redis_url" {
+
+}
+
+variable "smtp_password" {
+
+}
+
 variable "instance_type" {
 
 }

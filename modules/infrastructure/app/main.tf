@@ -16,6 +16,8 @@ data "template_file" "app" {
     port         = var.app_port
     database_url = var.database_url
     master_key   = var.master_key
+    redis_url      = var.redis_url
+    smtp_password  = var.smtp_password
     log_group    = aws_cloudwatch_log_group.log_group.name
   }
 }
