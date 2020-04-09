@@ -27,6 +27,14 @@ variable "database_url" {
 
 }
 
+variable "smtp_password" {
+
+}
+
+variable "redis_url" {
+
+}
+
 variable "master_key" {
   description = "rails master key"
 }

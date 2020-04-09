@@ -6,6 +6,8 @@ module "app" {
   name              = var.name
   desired_count     = "1"
   database_url      = var.database_url
+  redis_url         = var.redis_url
+  smtp_password     = var.smtp_password
   master_key        = var.master_key
   health_check_path = var.health_check_path
   domain            = var.domain
