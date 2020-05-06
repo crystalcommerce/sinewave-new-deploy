@@ -1,10 +1,11 @@
 provider "aws" {
-  region = "${var.region}"
+  region = var.region
+  version = "~> 2.51"
 }
 
 terraform {
   backend "s3" {
-    bucket = "prod-site-uploader-state-file"
+    bucket = "prod-sinewave-new-state-file"
     key    = "4-app/terraform.tfstate"
     region = "us-west-1"
   }
