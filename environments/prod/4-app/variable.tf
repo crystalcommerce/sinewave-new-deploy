@@ -40,12 +40,5 @@ variable "domain" {
 
 }
 
-variable "app_id" {
-
-}
-
-variable "secret" {
-
-}
 
 

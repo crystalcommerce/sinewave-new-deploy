@@ -1,3 +1,3 @@
 output "endpoint" {
-  value = "${module.app.endpoint}"
+  value = module.app.endpoint
 }
