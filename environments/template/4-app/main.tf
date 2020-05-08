@@ -13,4 +13,5 @@ module "app" {
   instance_size     = var.instance_size
   redis_url         = var.redis_url
   smtp_password     = var.smtp_password
+  server_url         = var.server_url
 }

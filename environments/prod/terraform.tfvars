@@ -8,7 +8,7 @@
   database_url="postgres://sinewave_new:45mnT2poFxj@prod-sinewave-new.cma9ehpjn7ak.us-west-1.rds.amazonaws.com:5432/sinewave_new"
   image = "157720553339.dkr.ecr.us-west-1.amazonaws.com/prod-sinewave-new:latest"
   master_key = "cf1019ea1f314281e8c208a5b4c8b973"
-  smtp_password="s3pvyp9c0bcg4"
+  smtp_password="3pvyp9c0bcg4"
   domain="ccgrid.net"
   redis_url = "redis://sinewave-new-queue.5rdrdn.0001.usw1.cache.amazonaws.com:6379"
 
@@ -20,3 +20,4 @@
   vpc_id = "vpc-0e5753f54f286e7a1"
   queue_node_type="cache.m5.large"
   app_subnet_ids=["subnet-0356ab16cf868858b"]
+  server_url = "sinewave-new.ccgrid.net"

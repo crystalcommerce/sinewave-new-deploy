@@ -14,6 +14,9 @@ variable "image" {
 variable "master_key" {
 }
 
+variable "server_url" {
+}
+
 variable "database_url" {
 }
 
