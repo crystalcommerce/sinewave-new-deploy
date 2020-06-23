@@ -24,6 +24,10 @@
                 "value": "${redis_url}"
             },
             {
+                "name": "SERVER_URL",
+                "value": "${server_url}"
+            },
+            {
                 "name": "SMTP_PASSWORD",
                 "value": "${smtp_password}"
             },

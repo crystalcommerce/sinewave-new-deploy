@@ -13,4 +13,5 @@ module "app" {
   domain            = var.domain
   instance_type     = var.instance_type
   instance_size     = var.instance_size
+  server_url        = var.server_url
 }

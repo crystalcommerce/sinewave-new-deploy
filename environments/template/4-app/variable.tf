@@ -26,6 +26,10 @@ variable "redis_url" {
 
 }
 
+variable "server_url" {
+
+}
+
 variable "smtp_password" {
 
 }

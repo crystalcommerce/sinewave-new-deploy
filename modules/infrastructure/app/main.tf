@@ -16,6 +16,7 @@ data "template_file" "app" {
     port         = var.app_port
     database_url = var.database_url
     master_key   = var.master_key
+    server_url   = var.server_url
     redis_url      = var.redis_url
     smtp_password  = var.smtp_password
     log_group    = aws_cloudwatch_log_group.log_group.name
@@ -37,6 +38,7 @@ resource "aws_ecs_service" "app" {
   task_definition = aws_ecs_task_definition.app.arn
   desired_count   = var.desired_count
   iam_role        = aws_iam_role.ecs_task_execution.arn
+  deployment_minimum_healthy_percent = 0
 
   load_balancer {
     target_group_arn = aws_alb_target_group.app.arn

@@ -35,6 +35,10 @@ variable "redis_url" {
 
 }
 
+variable "server_url" {
+
+}
+
 variable "master_key" {
   description = "rails master key"
 }
