@@ -5,7 +5,7 @@
   database_name ="sinewave_new"
   database_username ="sinewave_new"
   database_password ="45mnT2poFxj"
-  database_url="postgres://sinewave:CcXSG2tybh@sinewave-new-prod.cma9ehpjn7ak.us-west-1.rds.amazonaws.com:5432/sinewave_production"
+  database_url="postgres://sinewave:CcXSG2tybh@sinewave-new-prod-26-06-2020.cma9ehpjn7ak.us-west-1.rds.amazonaws.com:5432/sinewave_production"
   image = "157720553339.dkr.ecr.us-west-1.amazonaws.com/prod-sinewave-new:latest"
   master_key = "cf1019ea1f314281e8c208a5b4c8b973"
   smtp_password="3pvyp9c0bcg4"
