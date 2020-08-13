@@ -5,12 +5,12 @@
   database_name ="sinewave_new"
   database_username ="sinewave_new"
   database_password ="45mnT2poFxj"
-  database_url="postgres://sinewave:CcXSG2tybh@sinewave-new-prod-26-06-2020.cma9ehpjn7ak.us-west-1.rds.amazonaws.com:5432/sinewave_production"
+  database_url="postgres://sinewave:CcXSG2tybh@sinewave-new-prod-13-08-2020.cma9ehpjn7ak.us-west-1.rds.amazonaws.com:5432/sinewave_production"
   image = "157720553339.dkr.ecr.us-west-1.amazonaws.com/prod-sinewave-new:latest"
   master_key = "cf1019ea1f314281e8c208a5b4c8b973"
   smtp_password="3pvyp9c0bcg4"
   domain="ccgrid.net"
-  redis_url = "redis://sinewave-new-queue.5rdrdn.0001.usw1.cache.amazonaws.com:6379"
+  redis_url = "redis://redis-session.prod.crystalcommerce.com:18172"
 
   #integrate with sinewave
   app_id="c85090e6c30841a3b0dd4b8ed19de93814fba565b367391d9c2f76247d773f25"
