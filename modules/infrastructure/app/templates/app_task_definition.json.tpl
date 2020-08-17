@@ -8,7 +8,7 @@
                 "hostPort": ${port}
             }
         ],
-        "memory": 4096,
+        "memory": 3072,
         "networkMode": "awsvpc",
         "environment": [
             {
