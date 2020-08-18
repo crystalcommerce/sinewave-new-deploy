@@ -36,9 +36,9 @@ resource "aws_alb_target_group" "app" {
     interval            = "50"
     protocol            = "HTTP"
     matcher             = "200,201,300"
-    timeout             = "10"
+    timeout             = "120"
     path                = var.health_check_path
-    unhealthy_threshold = "4"
+    unhealthy_threshold = "20"
   }
 }
 
