@@ -60,7 +60,7 @@ resource "aws_autoscaling_group" "app" {
   launch_configuration = aws_launch_configuration.app.name
 
   desired_capacity = var.instance_size
-  min_size         = 1
+  min_size         = 2
   max_size         = 4
 }
 
