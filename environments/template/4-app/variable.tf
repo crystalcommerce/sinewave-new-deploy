@@ -30,6 +30,10 @@ variable "server_url" {
 
 }
 
+variable "dsn_key" {
+
+}
+
 variable "smtp_password" {
 
 }

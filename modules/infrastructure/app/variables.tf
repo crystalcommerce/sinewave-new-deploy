@@ -39,6 +39,10 @@ variable "server_url" {
 
 }
 
+variable "dsn_key" {
+
+}
+
 variable "master_key" {
   description = "rails master key"
 }

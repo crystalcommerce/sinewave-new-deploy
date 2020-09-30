@@ -28,6 +28,10 @@
                 "value": "${server_url}"
             },
             {
+                "name": "DSN_KEY",
+                "value": "${dsn_key}"
+            },
+            {
                 "name": "SMTP_PASSWORD",
                 "value": "${smtp_password}"
             },
