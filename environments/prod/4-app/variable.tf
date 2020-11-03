@@ -17,6 +17,9 @@ variable "master_key" {
 variable "server_url" {
 }
 
+variable "dsn_key" {
+}
+
 variable "database_url" {
 }
 

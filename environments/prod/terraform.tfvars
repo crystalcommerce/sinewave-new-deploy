@@ -20,4 +20,5 @@
   vpc_id = "vpc-0e5753f54f286e7a1"
   queue_node_type="cache.m5.large"
   app_subnet_ids=["subnet-0356ab16cf868858b"]
-  server_url = "sinewave-new.ccgrid.net"
+  server_url = "https://accounts.crystalcommerce.com/"
+  dsn_key = "https://2ad4a7e3228f490084709c6807d98748@o454205.ingest.sentry.io/5444923"
