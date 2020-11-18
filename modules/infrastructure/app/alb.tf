@@ -60,7 +60,7 @@ data "aws_route53_zone" "primary" {
 }
 
 locals {
-  app_domain_name = "${var.name}.${var.env == "prod" ? "" : "${var.env}."}${var.domain}"
+  app_domain_name = "${var.name}-${var.env == "prod" ? "" : "${var.env}."}${var.domain}"
 }
 
 
