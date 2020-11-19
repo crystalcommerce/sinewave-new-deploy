@@ -33,6 +33,10 @@ variable "server_url" {
 variable "dsn_key" {
 
 }
+	
+variable "bucket" {
+
+}
 
 variable "smtp_password" {
 

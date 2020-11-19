@@ -18,6 +18,7 @@ data "template_file" "app" {
     master_key   = var.master_key
     server_url   = var.server_url
     dsn_key      = var.dsn_key
+    bucket       = var.bucket
     redis_url      = var.redis_url
     smtp_password  = var.smtp_password
     log_group    = aws_cloudwatch_log_group.log_group.name
