@@ -43,6 +43,10 @@ variable "dsn_key" {
 
 }
 
+variable "bucket" {
+
+}
+
 variable "master_key" {
   description = "rails master key"
 }

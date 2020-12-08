@@ -19,6 +19,8 @@ variable "server_url" {
 
 variable "dsn_key" {
 }
+variable "bucket" {
+}
 
 variable "database_url" {
 }

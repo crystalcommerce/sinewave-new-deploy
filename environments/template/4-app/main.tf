@@ -15,4 +15,5 @@ module "app" {
   smtp_password     = var.smtp_password
   server_url        = var.server_url
   dsn_key           = var.dsn_key
+  bucket            = var.bucket
 }

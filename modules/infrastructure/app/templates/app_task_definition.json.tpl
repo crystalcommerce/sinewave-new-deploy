@@ -32,6 +32,10 @@
                 "value": "${dsn_key}"
             },
             {
+                "name": "BUCKET",
+                "value": "${bucket}"
+            },
+            {
                 "name": "SMTP_PASSWORD",
                 "value": "${smtp_password}"
             },

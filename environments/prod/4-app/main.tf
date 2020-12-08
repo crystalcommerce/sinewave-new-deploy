@@ -15,4 +15,5 @@ module "app" {
   instance_size     = var.instance_size
   server_url        = var.server_url
   dsn_key           = var.dsn_key
+  bucket            = var.bucket
 }
